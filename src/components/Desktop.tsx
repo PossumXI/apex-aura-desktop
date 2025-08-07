@@ -59,8 +59,10 @@ const Desktop = () => {
 
   return (
     <div className="h-screen w-screen overflow-hidden relative">
-      {/* Desktop Background */}
-      <div className="fixed inset-0 bg-gradient-to-br from-slate-900 via-blue-900 to-teal-900 -z-10" />
+      {/* Glass transparent background */}
+      <div className="fixed inset-0 glass backdrop-blur-xl" style={{
+        background: 'radial-gradient(circle at 20% 50%, rgba(120, 119, 198, 0.3), transparent 50%), radial-gradient(circle at 80% 20%, rgba(255, 255, 255, 0.1), transparent 50%)'
+      }} />
       
       {/* Desktop Widgets */}
       {openWidgets.has('system-info') && (
