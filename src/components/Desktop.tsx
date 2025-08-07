@@ -59,10 +59,7 @@ const Desktop = () => {
 
   return (
     <div className="h-screen w-screen overflow-hidden relative">
-      {/* Background Video */}
-      <DesktopVideo src="/path/to/your/background-video.mp4" />
-      
-      {/* Fallback gradient background */}
+      {/* Desktop Background */}
       <div className="fixed inset-0 bg-gradient-to-br from-slate-900 via-blue-900 to-teal-900 -z-10" />
       
       {/* Desktop Widgets */}
