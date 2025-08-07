@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { Button } from "@/components/ui/button";
 import { Menu, Settings, Download, Upload, Info } from "lucide-react";
-import apexLogo from "@/assets/apex-logo.png";
+// Using the uploaded taskbar icon
 
 interface TaskbarProps {
   onOpenWidget: (widget: string) => void;
@@ -25,7 +25,7 @@ const Taskbar = ({ onOpenWidget }: TaskbarProps) => {
             onClick={() => onOpenWidget('menu')}
           >
             <img 
-              src={apexLogo} 
+              src="/lovable-uploads/07397ce3-690e-4b28-ac0e-b1d133460eb4.png" 
               alt="Apex OS" 
               className="w-8 h-8 object-contain animate-pulse-glow"
             />
