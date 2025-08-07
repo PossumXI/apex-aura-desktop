@@ -58,18 +58,18 @@ const Desktop = () => {
   };
 
   return (
-    <div className="h-screen w-screen overflow-hidden relative">
+    <div className="h-screen w-screen overflow-hidden relative bg-gradient-to-br from-slate-900 via-blue-900 to-teal-900">
       {/* Glass transparent background */}
-      <div className="fixed inset-0 glass backdrop-blur-xl" style={{
-        background: 'radial-gradient(circle at 20% 50%, rgba(120, 119, 198, 0.3), transparent 50%), radial-gradient(circle at 80% 20%, rgba(255, 255, 255, 0.1), transparent 50%)'
+      <div className="fixed inset-0 backdrop-blur-xl" style={{
+        background: 'radial-gradient(circle at 20% 50%, rgba(120, 119, 198, 0.2), transparent 60%), radial-gradient(circle at 80% 20%, rgba(255, 255, 255, 0.05), transparent 60%), radial-gradient(circle at 60% 80%, rgba(0, 255, 255, 0.1), transparent 50%)'
       }} />
       
       {/* Floating OS logo */}
-      <div className="fixed inset-0 flex items-center justify-center pointer-events-none z-0">
+      <div className="fixed inset-0 flex items-center justify-center pointer-events-none z-0 opacity-8">
         <img 
           src="/lovable-uploads/6bf6bf74-fecf-4417-b3fb-53f87966c439.png" 
           alt="OS¹" 
-          className="w-96 h-96 object-contain opacity-10 animate-float"
+          className="w-80 h-80 object-contain animate-float"
         />
       </div>
       

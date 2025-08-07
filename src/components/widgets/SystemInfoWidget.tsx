@@ -35,16 +35,16 @@ const SystemInfoWidget = ({ onClose, isMinimized, onToggleMinimize }: SystemInfo
   }
 
   return (
-    <Card className="fixed top-20 right-4 w-96 h-[32rem] glass-strong border-primary/20 transition-all duration-500 animate-float">
+    <Card className="fixed top-20 right-4 w-96 h-[32rem] glass-strong border-primary/10 hierarchy-primary transition-all duration-500 animate-float rounded-3xl">
       <CardHeader className="flex flex-row items-center justify-between pb-4 border-b border-white/10">
         <CardTitle className="text-lg font-bold bg-gradient-to-r from-primary to-accent bg-clip-text text-transparent">
           System Information
         </CardTitle>
         <div className="flex space-x-2">
-          <Button variant="ghost" size="sm" onClick={onToggleMinimize}>
+          <Button variant="ghost" size="sm" className="interactive-element rounded-xl" onClick={onToggleMinimize}>
             <Minimize2 className="w-4 h-4" />
           </Button>
-          <Button variant="ghost" size="sm" onClick={onClose}>
+          <Button variant="ghost" size="sm" className="interactive-element rounded-xl" onClick={onClose}>
             <X className="w-4 h-4" />
           </Button>
         </div>
@@ -53,7 +53,7 @@ const SystemInfoWidget = ({ onClose, isMinimized, onToggleMinimize }: SystemInfo
       <CardContent className="p-0 h-full">
         <div className="flex h-full">
           {/* Sidebar */}
-          <div className="w-24 border-r border-white/10 p-2 space-y-2">
+          <div className="w-24 border-r border-white/5 p-3 space-y-3">
             {[
               { id: "overview", icon: Layers, label: "Overview" },
               { id: "architecture", icon: Code, label: "Arch" },
@@ -64,7 +64,7 @@ const SystemInfoWidget = ({ onClose, isMinimized, onToggleMinimize }: SystemInfo
                 key={id}
                 variant={activeSection === id ? "default" : "ghost"}
                 size="sm"
-                className="w-full flex flex-col p-2 h-auto glass-light hover:glass-strong"
+                className="w-full flex flex-col p-3 h-auto glass-light hover:glass-strong interactive-element rounded-2xl hierarchy-tertiary"
                 onClick={() => setActiveSection(id)}
               >
                 <Icon className="w-4 h-4 mb-1" />
@@ -74,33 +74,33 @@ const SystemInfoWidget = ({ onClose, isMinimized, onToggleMinimize }: SystemInfo
           </div>
 
           {/* Content */}
-          <div className="flex-1 p-4 overflow-y-auto custom-scrollbar">
+          <div className="flex-1 p-6 overflow-y-auto custom-scrollbar">
             {activeSection === "overview" && (
               <div className="space-y-4">
                 <div className="space-y-3">
                   <div className="flex justify-between items-center">
                     <span className="text-sm text-muted-foreground">Version</span>
-                    <Badge variant="secondary" className="glass-light">{systemInfo.version}</Badge>
+                    <Badge variant="secondary" className="glass-light hierarchy-tertiary rounded-xl">{systemInfo.version}</Badge>
                   </div>
                   <div className="flex justify-between items-center">
                     <span className="text-sm text-muted-foreground">Build</span>
-                    <Badge variant="outline" className="glass-light">{systemInfo.build}</Badge>
+                    <Badge variant="outline" className="glass-light hierarchy-tertiary rounded-xl">{systemInfo.build}</Badge>
                   </div>
                   <div className="flex justify-between items-center">
                     <span className="text-sm text-muted-foreground">Architecture</span>
-                    <Badge variant="secondary" className="glass-light">{systemInfo.architecture}</Badge>
+                    <Badge variant="secondary" className="glass-light hierarchy-tertiary rounded-xl">{systemInfo.architecture}</Badge>
                   </div>
                   <div className="flex justify-between items-center">
                     <span className="text-sm text-muted-foreground">Kernel</span>
-                    <Badge variant="outline" className="glass-light">{systemInfo.kernel}</Badge>
+                    <Badge variant="outline" className="glass-light hierarchy-tertiary rounded-xl">{systemInfo.kernel}</Badge>
                   </div>
                   <div className="flex justify-between items-center">
                     <span className="text-sm text-muted-foreground">Security</span>
-                    <Badge variant="destructive" className="glass-light">{systemInfo.security}</Badge>
+                    <Badge variant="destructive" className="glass-light hierarchy-tertiary rounded-xl">{systemInfo.security}</Badge>
                   </div>
                   <div className="flex justify-between items-center">
                     <span className="text-sm text-muted-foreground">AI Engine</span>
-                    <Badge className="glass-light bg-gradient-to-r from-primary to-accent text-primary-foreground">{systemInfo.aiVersion}</Badge>
+                    <Badge className="glass-light bg-gradient-to-r from-primary to-accent text-primary-foreground hierarchy-tertiary rounded-xl">{systemInfo.aiVersion}</Badge>
                   </div>
                 </div>
               </div>

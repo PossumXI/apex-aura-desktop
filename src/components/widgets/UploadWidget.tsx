@@ -68,25 +68,25 @@ const UploadWidget = ({ onClose, isMinimized, onToggleMinimize }: UploadWidgetPr
   }
 
   return (
-    <Card className="fixed top-20 left-96 w-80 h-[32rem] glass-strong border-primary/20 transition-all duration-500 animate-float">
+    <Card className="fixed top-20 left-96 w-80 h-[32rem] glass-strong border-primary/10 hierarchy-primary transition-all duration-500 animate-float rounded-3xl">
       <CardHeader className="flex flex-row items-center justify-between pb-4 border-b border-white/10">
         <CardTitle className="text-lg font-bold bg-gradient-to-r from-primary to-accent bg-clip-text text-transparent">
           Upload Files
         </CardTitle>
         <div className="flex space-x-2">
-          <Button variant="ghost" size="sm" onClick={onToggleMinimize}>
+          <Button variant="ghost" size="sm" className="interactive-element rounded-xl" onClick={onToggleMinimize}>
             <Minimize2 className="w-4 h-4" />
           </Button>
-          <Button variant="ghost" size="sm" onClick={onClose}>
+          <Button variant="ghost" size="sm" className="interactive-element rounded-xl" onClick={onClose}>
             <X className="w-4 h-4" />
           </Button>
         </div>
       </CardHeader>
       
-      <CardContent className="p-6 space-y-6">
+      <CardContent className="p-8 space-y-6">
         {/* Upload Area */}
         <div
-          className="border-2 border-dashed border-primary/30 rounded-xl p-8 text-center glass-light hover:glass-strong transition-all duration-300 cursor-pointer"
+          className="border-2 border-dashed border-primary/30 rounded-2xl p-8 text-center glass-light hover:glass-strong interactive-element hierarchy-tertiary"
           onDragOver={handleDragOver}
           onDrop={handleDrop}
           onClick={() => fileInputRef.current?.click()}
@@ -96,7 +96,7 @@ const UploadWidget = ({ onClose, isMinimized, onToggleMinimize }: UploadWidgetPr
           <p className="text-sm text-muted-foreground mb-4">
             Drag and drop your .zip files here or click to browse
           </p>
-          <Badge variant="outline" className="glass-light">
+          <Badge variant="outline" className="glass-light rounded-xl">
             Supported: .zip, .tar.gz, .rar
           </Badge>
           
@@ -111,7 +111,7 @@ const UploadWidget = ({ onClose, isMinimized, onToggleMinimize }: UploadWidgetPr
 
         {/* Selected File Info */}
         {selectedFile && (
-          <div className="glass-light p-4 rounded-xl space-y-3">
+          <div className="glass-light p-5 rounded-2xl space-y-3 hierarchy-tertiary">
             <div className="flex items-center space-x-3">
               <FileText className="w-6 h-6 text-primary" />
               <div className="flex-1">
@@ -131,7 +131,7 @@ const UploadWidget = ({ onClose, isMinimized, onToggleMinimize }: UploadWidgetPr
                 </div>
                 <div className="w-full bg-muted/20 rounded-full h-2">
                   <div 
-                    className="bg-primary h-2 rounded-full transition-all duration-300"
+                    className="bg-primary h-2 rounded-full transition-all duration-300 hierarchy-tertiary"
                     style={{ width: `${uploadProgress}%` }}
                   />
                 </div>
@@ -158,7 +158,7 @@ const UploadWidget = ({ onClose, isMinimized, onToggleMinimize }: UploadWidgetPr
 
         {/* Upload Button */}
         <Button
-          className="w-full bg-gradient-to-r from-primary to-accent hover:from-primary/90 hover:to-accent/90 text-primary-foreground font-semibold transition-all duration-300 hover:scale-105"
+          className="w-full bg-gradient-to-r from-primary to-accent hover:from-primary/90 hover:to-accent/90 text-primary-foreground font-semibold py-4 interactive-element rounded-2xl hierarchy-secondary"
           onClick={handleUpload}
           disabled={!selectedFile || uploadStatus === 'uploading'}
         >

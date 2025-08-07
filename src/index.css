@@ -56,6 +56,30 @@ All colors MUST be HSL.
     --transition-smooth: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
     --transition-spring: all 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
     
+    /* Apple-inspired design tokens */
+    --hierarchy-elevation-1: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
+    --hierarchy-elevation-2: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23);
+    --hierarchy-elevation-3: 0 10px 20px rgba(0, 0, 0, 0.19), 0 6px 6px rgba(0, 0, 0, 0.23);
+    --hierarchy-elevation-4: 0 14px 28px rgba(0, 0, 0, 0.25), 0 10px 10px rgba(0, 0, 0, 0.22);
+    
+    /* Consistent spacing system (8pt grid) */
+    --space-xs: 0.25rem;  /* 4px */
+    --space-sm: 0.5rem;   /* 8px */
+    --space-md: 1rem;     /* 16px */
+    --space-lg: 1.5rem;   /* 24px */
+    --space-xl: 2rem;     /* 32px */
+    --space-2xl: 3rem;    /* 48px */
+    --space-3xl: 4rem;    /* 64px */
+    
+    /* Typography hierarchy */
+    --text-xs: 0.75rem;   /* 12px */
+    --text-sm: 0.875rem;  /* 14px */
+    --text-base: 1rem;    /* 16px */
+    --text-lg: 1.125rem;  /* 18px */
+    --text-xl: 1.25rem;   /* 20px */
+    --text-2xl: 1.5rem;   /* 24px */
+    --text-3xl: 1.875rem; /* 30px */
+    
     /* Desktop specific */
     --taskbar-height: 60px;
     --widget-padding: 1.5rem;
@@ -113,24 +137,59 @@ All colors MUST be HSL.
 
   /* Glassmorphism utilities */
   .glass {
-    background: rgba(var(--glass-background));
+    background: rgba(var(--glass-background-light));
     backdrop-filter: var(--glass-backdrop);
-    border: 1px solid rgba(var(--glass-border));
-    box-shadow: var(--glass-shadow);
+    border: 0.5px solid rgba(var(--glass-border));
+    box-shadow: var(--hierarchy-elevation-1);
+    transition: var(--transition-smooth);
   }
 
   .glass-light {
     background: rgba(var(--glass-background-light));
     backdrop-filter: var(--glass-backdrop);
-    border: 1px solid rgba(var(--glass-border));
-    box-shadow: var(--glass-shadow);
+    border: 0.5px solid rgba(var(--glass-border));
+    box-shadow: var(--hierarchy-elevation-2);
+    transition: var(--transition-smooth);
   }
 
   .glass-strong {
     background: rgba(var(--glass-background-strong));
     backdrop-filter: var(--glass-backdrop);
-    border: 1px solid rgba(var(--glass-border));
-    box-shadow: var(--glass-shadow-strong);
+    border: 0.5px solid rgba(var(--glass-border));
+    box-shadow: var(--hierarchy-elevation-3);
+    transition: var(--transition-smooth);
+  }
+
+  /* Apple-inspired hierarchy classes */
+  .hierarchy-primary {
+    box-shadow: var(--hierarchy-elevation-4);
+    z-index: 40;
+  }
+
+  .hierarchy-secondary {
+    box-shadow: var(--hierarchy-elevation-3);
+    z-index: 30;
+  }
+
+  .hierarchy-tertiary {
+    box-shadow: var(--hierarchy-elevation-2);
+    z-index: 20;
+  }
+
+  /* Consistent interactive states */
+  .interactive-element {
+    transition: var(--transition-smooth);
+    cursor: pointer;
+  }
+
+  .interactive-element:hover {
+    transform: translateY(-1px);
+    box-shadow: var(--hierarchy-elevation-3);
+  }
+
+  .interactive-element:active {
+    transform: translateY(0);
+    box-shadow: var(--hierarchy-elevation-1);
   }
 
   /* Desktop background video */

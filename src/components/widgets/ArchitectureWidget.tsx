@@ -48,24 +48,24 @@ const ArchitectureWidget = ({ onClose, isMinimized, onToggleMinimize }: Architec
   }
 
   return (
-    <Card className="fixed top-20 left-[32rem] w-96 h-[32rem] glass-strong border-primary/20 transition-all duration-500 animate-float">
+    <Card className="fixed top-20 left-[32rem] w-96 h-[32rem] glass-strong border-primary/10 hierarchy-primary transition-all duration-500 animate-float rounded-3xl">
       <CardHeader className="flex flex-row items-center justify-between pb-4 border-b border-white/10">
         <CardTitle className="text-lg font-bold bg-gradient-to-r from-primary to-accent bg-clip-text text-transparent">
           Architecture
         </CardTitle>
         <div className="flex space-x-2">
-          <Button variant="ghost" size="sm" onClick={onToggleMinimize}>
+          <Button variant="ghost" size="sm" className="interactive-element rounded-xl" onClick={onToggleMinimize}>
             <Minimize2 className="w-4 h-4" />
           </Button>
-          <Button variant="ghost" size="sm" onClick={onClose}>
+          <Button variant="ghost" size="sm" className="interactive-element rounded-xl" onClick={onClose}>
             <X className="w-4 h-4" />
           </Button>
         </div>
       </CardHeader>
       
-      <CardContent className="p-4 h-full overflow-y-auto custom-scrollbar">
+      <CardContent className="p-6 h-full overflow-y-auto custom-scrollbar">
         <Tabs defaultValue="principles" className="h-full">
-          <TabsList className="grid w-full grid-cols-3 glass-light">
+          <TabsList className="grid w-full grid-cols-3 glass-light hierarchy-tertiary rounded-2xl">
             <TabsTrigger value="principles">Principles</TabsTrigger>
             <TabsTrigger value="layers">Layers</TabsTrigger>
             <TabsTrigger value="tech">Tech Stack</TabsTrigger>
@@ -75,14 +75,14 @@ const ArchitectureWidget = ({ onClose, isMinimized, onToggleMinimize }: Architec
             <div className="space-y-3">
               <h4 className="font-semibold text-sm text-primary">Core Design Principles</h4>
               {architectureData.principles.map((principle, index) => (
-                <div key={index} className="glass-light p-3 rounded-lg flex items-center space-x-3">
+                <div key={index} className="glass-light p-4 rounded-2xl flex items-center space-x-3 hierarchy-tertiary">
                   <div className="w-2 h-2 bg-primary rounded-full"></div>
                   <span className="text-sm">{principle}</span>
                 </div>
               ))}
             </div>
             
-            <div className="glass-light p-4 rounded-lg">
+            <div className="glass-light p-5 rounded-2xl hierarchy-tertiary">
               <h5 className="font-medium text-sm mb-2 text-accent">Key Features</h5>
               <ul className="text-xs space-y-1 text-muted-foreground">
                 <li>• Mathematical proof of critical components</li>
@@ -97,11 +97,11 @@ const ArchitectureWidget = ({ onClose, isMinimized, onToggleMinimize }: Architec
             <div className="space-y-3">
               <h4 className="font-semibold text-sm text-primary">System Architecture</h4>
               {architectureData.layers.map((layer, index) => (
-                <div key={index} className="glass-light p-3 rounded-lg">
+                <div key={index} className="glass-light p-4 rounded-2xl hierarchy-tertiary">
                   <h5 className="font-medium text-sm mb-2 text-accent">{layer.name}</h5>
                   <div className="flex flex-wrap gap-2">
                     {layer.components.map((component, idx) => (
-                      <Badge key={idx} variant="outline" className="text-xs glass-light">
+                      <Badge key={idx} variant="outline" className="text-xs glass-light rounded-xl">
                         {component}
                       </Badge>
                     ))}
@@ -118,18 +118,18 @@ const ArchitectureWidget = ({ onClose, isMinimized, onToggleMinimize }: Architec
                 {architectureData.technologies.map((tech, index) => {
                   const Icon = tech.icon;
                   return (
-                    <div key={index} className="glass-light p-3 rounded-lg flex items-center justify-between">
+                    <div key={index} className="glass-light p-4 rounded-2xl flex items-center justify-between hierarchy-tertiary">
                       <div className="flex items-center space-x-3">
                         <Icon className="w-5 h-5 text-primary" />
                         <span className="text-sm font-medium">{tech.name}</span>
                       </div>
-                      <Badge variant="secondary" className="glass-light">{tech.value}</Badge>
+                      <Badge variant="secondary" className="glass-light rounded-xl">{tech.value}</Badge>
                     </div>
                   );
                 })}
               </div>
               
-              <div className="glass-light p-3 rounded-lg">
+              <div className="glass-light p-4 rounded-2xl hierarchy-tertiary">
                 <h5 className="font-medium text-sm mb-2 text-accent">Performance Benefits</h5>
                 <ul className="text-xs space-y-1 text-muted-foreground">
                   <li>• Zero-cost abstractions</li>

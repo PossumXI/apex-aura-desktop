@@ -51,22 +51,22 @@ const DownloadWidget = ({ onClose, isMinimized, onToggleMinimize }: DownloadWidg
   }
 
   return (
-    <Card className="fixed top-20 left-4 w-80 h-[32rem] glass-strong border-primary/20 transition-all duration-500 animate-float">
+    <Card className="fixed top-20 left-4 w-80 h-[32rem] glass-strong border-primary/10 hierarchy-primary transition-all duration-500 animate-float rounded-3xl">
       <CardHeader className="flex flex-row items-center justify-between pb-4 border-b border-white/10">
         <CardTitle className="text-lg font-bold bg-gradient-to-r from-primary to-accent bg-clip-text text-transparent">
           Download Apex OS
         </CardTitle>
         <div className="flex space-x-2">
-          <Button variant="ghost" size="sm" onClick={onToggleMinimize}>
+          <Button variant="ghost" size="sm" className="interactive-element rounded-xl" onClick={onToggleMinimize}>
             <Minimize2 className="w-4 h-4" />
           </Button>
-          <Button variant="ghost" size="sm" onClick={onClose}>
+          <Button variant="ghost" size="sm" className="interactive-element rounded-xl" onClick={onClose}>
             <X className="w-4 h-4" />
           </Button>
         </div>
       </CardHeader>
       
-      <CardContent className="p-6 space-y-6">
+      <CardContent className="p-8 space-y-6">
         {/* Product Info */}
         <div className="space-y-4">
           <div className="flex items-center space-x-3">
@@ -77,18 +77,18 @@ const DownloadWidget = ({ onClose, isMinimized, onToggleMinimize }: DownloadWidg
             </div>
           </div>
 
-          <div className="glass-light p-4 rounded-xl space-y-2">
+          <div className="glass-light p-5 rounded-2xl space-y-3 hierarchy-tertiary">
             <div className="flex justify-between items-center">
               <span className="text-sm text-muted-foreground">Price</span>
               <span className="text-2xl font-bold text-primary">{productInfo.price}</span>
             </div>
             <div className="flex justify-between items-center">
               <span className="text-sm text-muted-foreground">Size</span>
-              <Badge variant="outline">{productInfo.downloadSize}</Badge>
+              <Badge variant="outline" className="rounded-xl">{productInfo.downloadSize}</Badge>
             </div>
             <div className="flex justify-between items-center">
               <span className="text-sm text-muted-foreground">Format</span>
-              <Badge variant="secondary">{productInfo.format}</Badge>
+              <Badge variant="secondary" className="rounded-xl">{productInfo.format}</Badge>
             </div>
           </div>
 
@@ -107,7 +107,7 @@ const DownloadWidget = ({ onClose, isMinimized, onToggleMinimize }: DownloadWidg
 
           {/* Purchase Button */}
           <Button
-            className="w-full bg-gradient-to-r from-primary to-accent hover:from-primary/90 hover:to-accent/90 text-primary-foreground font-semibold py-3 transition-all duration-300 hover:scale-105"
+            className="w-full bg-gradient-to-r from-primary to-accent hover:from-primary/90 hover:to-accent/90 text-primary-foreground font-semibold py-4 interactive-element rounded-2xl hierarchy-secondary"
             onClick={handlePurchase}
             disabled={isPurchasing}
           >
